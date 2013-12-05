@@ -12,7 +12,9 @@
 #import "PDFDocument.h"
 
 
-static BOOL firstTime = YES;
+static const int cCountDownStart = 10;
+
+static BOOL sFirstTime = YES;
 
 
 @interface RootViewController ()
@@ -107,19 +109,19 @@ static BOOL firstTime = YES;
                                                          selector:@selector(onCountDownTimer:)
                                                          userInfo:nil
                                                           repeats:YES];
-
-    self.countDownToCover = 10;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    if (firstTime) {
+    if (sFirstTime) {
         [self presentCoverViewController:NO];
         
-        firstTime = NO;
+        sFirstTime = NO;
     }
+
+    self.countDownToCover = cCountDownStart;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -156,6 +158,8 @@ static BOOL firstTime = YES;
                                       direction:UIPageViewControllerNavigationDirectionReverse
                                        animated:YES
                                      completion:nil];
+
+    self.countDownToCover = cCountDownStart;
 }
 
 - (IBAction)onRightButton:(id)sender
@@ -171,6 +175,8 @@ static BOOL firstTime = YES;
                                  direction:UIPageViewControllerNavigationDirectionForward
                                   animated:YES
                                 completion:nil];
+
+    self.countDownToCover = cCountDownStart;
 }
 
 - (IBAction)onTopButton:(id)sender
@@ -207,6 +213,8 @@ static BOOL firstTime = YES;
 		vc = [self slideViewControllerAtPage:page - 1];
 	}
 
+    self.countDownToCover = cCountDownStart;
+
 	return vc;
 }
 
@@ -219,6 +227,8 @@ static BOOL firstTime = YES;
 	if (page < self.pageMax) {
 		vc = [self slideViewControllerAtPage:page + 1];
 	}
+
+    self.countDownToCover = cCountDownStart;
 
 	return vc;
 }
