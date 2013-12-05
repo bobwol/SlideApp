@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PDFDocument.h"
+
 
 @interface SlideViewController : UIViewController
 
 @property (assign, nonatomic, readonly) int page;
 
-- (void)setContent:(id)content
+- (void)setContent:(PDFDocument *)content
 			atPage:(int)page;
 
 @end

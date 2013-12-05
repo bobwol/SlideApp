@@ -12,4 +12,9 @@
 
 @property (strong, nonatomic) IBOutlet UIView *controlPanel;
 
+
+- (IBAction)onLeftButton:(id)sender;
+- (IBAction)onRightButton:(id)sender;
+- (IBAction)onTopButton:(id)sender;
+
 @end

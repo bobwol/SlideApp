@@ -7,9 +7,12 @@
 //
 
 #import "SlideViewController.h"
+#import "PDFView.h"
+
 
 @interface SlideViewController ()
 
+@property (strong, nonatomic) PDFDocument *pdfDocument;
 @property (assign, nonatomic, readwrite) int page;
 
 @end
@@ -30,6 +33,12 @@
     [super viewDidLoad];
 
 	NSLog(@"page:%d", self.page);
+
+    CGRect frame = self.view.frame;
+    PDFView *pdfView = [[[PDFView alloc] initWithFrame:frame
+                                          pdfDocument:self.pdfDocument
+                                            pageNumber:self.page] autorelease];
+    [self.view addSubview:pdfView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,9 +46,10 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)setContent:(id)content
+- (void)setContent:(PDFDocument *)content
 			atPage:(int)page
 {
+    self.pdfDocument = content;
 	self.page = page;
 }
 

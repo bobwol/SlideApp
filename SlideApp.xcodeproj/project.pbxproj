@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AAB600F18500B990008014E /* slide.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AAB600E18500B990008014E /* slide.pdf */; };
+		8AAB601418500C130008014E /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAB601118500C130008014E /* PDFDocument.m */; };
+		8AAB601518500C130008014E /* PDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAB601318500C130008014E /* PDFView.m */; };
 		A166C9CD184F545F00AD4307 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A166C9CC184F545F00AD4307 /* UIKit.framework */; };
 		A166C9CF184F545F00AD4307 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A166C9CE184F545F00AD4307 /* Foundation.framework */; };
 		A166C9D1184F545F00AD4307 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A166C9D0184F545F00AD4307 /* CoreGraphics.framework */; };
@@ -24,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8AAB600E18500B990008014E /* slide.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = slide.pdf; path = Resources/slide.pdf; sourceTree = "<group>"; };
+		8AAB601018500C130008014E /* PDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDocument.h; sourceTree = "<group>"; };
+		8AAB601118500C130008014E /* PDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDocument.m; sourceTree = "<group>"; };
+		8AAB601218500C130008014E /* PDFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFView.h; sourceTree = "<group>"; };
+		8AAB601318500C130008014E /* PDFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFView.m; sourceTree = "<group>"; };
 		A166C9C9184F545F00AD4307 /* SlideApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A166C9CC184F545F00AD4307 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A166C9CE184F545F00AD4307 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,10 +68,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8AAB600D18500A5E0008014E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8AAB600E18500B990008014E /* slide.pdf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A166C9C0184F545F00AD4307 = {
 			isa = PBXGroup;
 			children = (
 				A166C9D2184F545F00AD4307 /* SlideApp */,
+				8AAB600D18500A5E0008014E /* Resources */,
 				A166C9CB184F545F00AD4307 /* Frameworks */,
 				A166C9CA184F545F00AD4307 /* Products */,
 			);
@@ -99,6 +116,10 @@
 				A166CA04184F743600AD4307 /* SlideViewController.h */,
 				A166CA05184F743700AD4307 /* SlideViewController.m */,
 				A166CA06184F743700AD4307 /* SlideViewController.xib */,
+				8AAB601218500C130008014E /* PDFView.h */,
+				8AAB601318500C130008014E /* PDFView.m */,
+				8AAB601018500C130008014E /* PDFDocument.h */,
+				8AAB601118500C130008014E /* PDFDocument.m */,
 				A166C9D3184F545F00AD4307 /* Supporting Files */,
 			);
 			path = SlideApp;
@@ -171,6 +192,7 @@
 			files = (
 				A166C9D7184F545F00AD4307 /* InfoPlist.strings in Resources */,
 				A166C9DF184F545F00AD4307 /* Default.png in Resources */,
+				8AAB600F18500B990008014E /* slide.pdf in Resources */,
 				A166C9E1184F545F00AD4307 /* Default@2x.png in Resources */,
 				A166C9E3184F545F00AD4307 /* Default-568h@2x.png in Resources */,
 				A166CA00184F605200AD4307 /* RootViewController.xib in Resources */,
@@ -187,8 +209,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A166C9D9184F545F00AD4307 /* main.m in Sources */,
+				8AAB601518500C130008014E /* PDFView.m in Sources */,
 				A166C9DD184F545F00AD4307 /* AppDelegate.m in Sources */,
 				A166C9FF184F605200AD4307 /* RootViewController.m in Sources */,
+				8AAB601418500C130008014E /* PDFDocument.m in Sources */,
 				A166CA07184F743700AD4307 /* SlideViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +328,7 @@
 				A166C9F4184F545F00AD4307 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

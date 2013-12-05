@@ -8,11 +8,14 @@
 
 #import "RootViewController.h"
 #import "SlideViewController.h"
+#import "PDFDocument.h"
 
 
 @interface RootViewController ()
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
+
+@property (strong, nonatomic) PDFDocument *pdfDocument;
 @property (assign, nonatomic) int pageMax;
 @property (assign, nonatomic) int currentPage;
 
@@ -40,7 +43,13 @@
 {
     [super viewDidLoad];
 
-	self.pageMax = 10;
+    // Load PDF
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"slide"
+													 ofType:@"pdf"];
+	NSURL *url = [NSURL fileURLWithPath:path];
+    self.pdfDocument = [[PDFDocument alloc] initWithUrl:url];
+
+	self.pageMax = self.pdfDocument.numberOfPages;
 	self.currentPage = 1;
 
 	self.pageViewController = [[[UIPageViewController alloc]
@@ -75,11 +84,49 @@
 
 - (SlideViewController *)slideViewControllerAtPage:(int)page
 {
-	SlideViewController *vc = [[[SlideViewController alloc] initWithNibName:@"SlideViewController" bundle:nil] autorelease];
-	[vc setContent:nil atPage:page];
+	SlideViewController *vc = [[[SlideViewController alloc] initWithNibName:@"SlideViewController"
+                                                                     bundle:nil] autorelease];
+	[vc setContent:self.pdfDocument
+            atPage:page];
 
 	return vc;
 }
+
+
+- (IBAction)onLeftButton:(id)sender
+{
+    NSArray *vcs = [self.pageViewController viewControllers];
+    SlideViewController *svc = [vcs objectAtIndex:0];
+    if (svc == nil || svc.page <= 1) {
+        return;
+    }
+
+    vcs = [NSArray arrayWithObject:[self slideViewControllerAtPage:svc.page - 1]];
+    [self.pageViewController setViewControllers:vcs
+                                      direction:UIPageViewControllerNavigationDirectionReverse
+                                       animated:YES
+                                     completion:nil];
+}
+
+- (IBAction)onRightButton:(id)sender
+{
+    NSArray *vcs = [self.pageViewController viewControllers];
+    SlideViewController *svc = [vcs objectAtIndex:0];
+    if (svc == nil || svc.page >= self.pageMax) {
+        return;
+    }
+
+    vcs = [NSArray arrayWithObject:[self slideViewControllerAtPage:svc.page + 1]];
+    [self.pageViewController setViewControllers:vcs
+                                 direction:UIPageViewControllerNavigationDirectionForward
+                                  animated:YES
+                                completion:nil];
+}
+
+- (IBAction)onTopButton:(id)sender
+{
+}
+
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
 	  viewControllerBeforeViewController:(UIViewController *)viewController
