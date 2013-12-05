@@ -7,8 +7,12 @@
 //
 
 #import "RootViewController.h"
+#import "CoverViewController.h"
 #import "SlideViewController.h"
 #import "PDFDocument.h"
+
+
+static BOOL firstTime = YES;
 
 
 @interface RootViewController ()
@@ -19,7 +23,15 @@
 @property (assign, nonatomic) int pageMax;
 @property (assign, nonatomic) int currentPage;
 
+@property (strong, nonatomic) NSTimer *countDownTimer;
+@property (assign, nonatomic) int countDownToCover;
+
+- (void)onCountDownTimer:(NSTimer *)timer;
+
+- (void)presentCoverViewController:(BOOL)animated;
+
 @end
+
 
 @implementation RootViewController
 
@@ -34,7 +46,10 @@
 
 - (void)dealloc
 {
+    [_controlPanel release];
 	[_pageViewController release];
+    [_pdfDocument release];
+    [_countDownTimer release];
 
 	[super dealloc];
 }
@@ -43,42 +58,77 @@
 {
     [super viewDidLoad];
 
-    // Load PDF
+    // load PDF
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"slide"
 													 ofType:@"pdf"];
 	NSURL *url = [NSURL fileURLWithPath:path];
-    self.pdfDocument = [[PDFDocument alloc] initWithUrl:url];
+    self.pdfDocument = [[[PDFDocument alloc] initWithUrl:url] autorelease];
 
 	self.pageMax = self.pdfDocument.numberOfPages;
 	self.currentPage = 1;
 
-	self.pageViewController = [[[UIPageViewController alloc]
-								initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl
-								navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-								options:nil] autorelease];
+    // setup UIPageViewController
+	self.pageViewController = [[[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl
+                                                               navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+                                                                             options:nil] autorelease];
 
 	self.pageViewController.delegate = self;
 	self.pageViewController.dataSource = self;
 	self.pageViewController.view.frame = self.view.frame;
 
-	UIViewController* vc = [self slideViewControllerAtPage:1];
-
-	NSArray *viewControllers = [NSArray arrayWithObject:vc];
-	[self.pageViewController setViewControllers:viewControllers
-									  direction:UIPageViewControllerNavigationDirectionForward
-									   animated:NO
-									 completion:nil];
-
 	[self addChildViewController:self.pageViewController];
 	[self.view addSubview:self.pageViewController.view];
 	[self.pageViewController didMoveToParentViewController:self];
 
+    // bring control panel to front
 	[self.view bringSubviewToFront:self.controlPanel];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+	UIViewController* vc = [self slideViewControllerAtPage:1];
+	NSArray *vcs = [NSArray arrayWithObject:vc];
+    [self.pageViewController setViewControllers:vcs
+                                      direction:UIPageViewControllerNavigationDirectionForward
+                                       animated:NO
+                                     completion:nil];
+
+    NSLog(@"schedule timer");
+    self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                           target:self
+                                                         selector:@selector(onCountDownTimer:)
+                                                         userInfo:nil
+                                                          repeats:YES];
+
+    self.countDownToCover = 10;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (firstTime) {
+        [self presentCoverViewController:NO];
+        
+        firstTime = NO;
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+
+    NSLog(@"invalidate timer");
+    [self.countDownTimer invalidate];
+    self.countDownTimer = nil;
 }
 
 
@@ -125,6 +175,25 @@
 
 - (IBAction)onTopButton:(id)sender
 {
+    [self presentCoverViewController:YES];
+}
+
+
+- (void)onCountDownTimer:(NSTimer *)timer
+{
+    if (self.countDownToCover-- <= 0) {
+        [self presentCoverViewController:YES];
+    }
+}
+
+
+- (void)presentCoverViewController:(BOOL)animated
+{
+    UIViewController *vc = [[[CoverViewController alloc] initWithNibName:@"CoverViewController"
+                                                                  bundle:nil] autorelease];
+    [self presentViewController:vc
+                       animated:animated
+                     completion:nil];
 }
 
 

@@ -28,6 +28,14 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [_pdfDocument release];
+
+    [super dealloc];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
