@@ -26,6 +26,10 @@
 		A166CA07184F743700AD4307 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A166CA05184F743700AD4307 /* SlideViewController.m */; };
 		A166CA08184F743700AD4307 /* SlideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A166CA06184F743700AD4307 /* SlideViewController.xib */; };
 		A166CA0A184F825B00AD4307 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A166CA09184F825B00AD4307 /* MainWindow.xib */; };
+		CF385CDC1851E98D002BFFC9 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF385CDB1851E98D002BFFC9 /* PlayerView.m */; };
+		CF385CDE1851ECA5002BFFC9 /* cover.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CF385CDD1851ECA5002BFFC9 /* cover.mp4 */; };
+		CF385CE01851ECEF002BFFC9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF385CDF1851ECEF002BFFC9 /* AVFoundation.framework */; };
+		CF385CE21851ED83002BFFC9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF385CE11851ED83002BFFC9 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +61,11 @@
 		A166CA05184F743700AD4307 /* SlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideViewController.m; sourceTree = "<group>"; };
 		A166CA06184F743700AD4307 /* SlideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideViewController.xib; sourceTree = "<group>"; };
 		A166CA09184F825B00AD4307 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		CF385CDA1851E98D002BFFC9 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		CF385CDB1851E98D002BFFC9 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		CF385CDD1851ECA5002BFFC9 /* cover.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = cover.mp4; path = Resources/cover.mp4; sourceTree = "<group>"; };
+		CF385CDF1851ECEF002BFFC9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CF385CE11851ED83002BFFC9 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +76,8 @@
 				A166C9CD184F545F00AD4307 /* UIKit.framework in Frameworks */,
 				A166C9CF184F545F00AD4307 /* Foundation.framework in Frameworks */,
 				A166C9D1184F545F00AD4307 /* CoreGraphics.framework in Frameworks */,
+				CF385CE21851ED83002BFFC9 /* CoreMedia.framework in Frameworks */,
+				CF385CE01851ECEF002BFFC9 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +87,7 @@
 		8AAB600D18500A5E0008014E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CF385CDD1851ECA5002BFFC9 /* cover.mp4 */,
 				8AAB600E18500B990008014E /* slide.pdf */,
 			);
 			name = Resources;
@@ -105,6 +117,8 @@
 				A166C9CC184F545F00AD4307 /* UIKit.framework */,
 				A166C9CE184F545F00AD4307 /* Foundation.framework */,
 				A166C9D0184F545F00AD4307 /* CoreGraphics.framework */,
+				CF385CE11851ED83002BFFC9 /* CoreMedia.framework */,
+				CF385CDF1851ECEF002BFFC9 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,6 +135,8 @@
 				8AAB6016185020860008014E /* CoverViewController.h */,
 				8AAB6017185020860008014E /* CoverViewController.m */,
 				8AAB6018185020860008014E /* CoverViewController.xib */,
+				CF385CDA1851E98D002BFFC9 /* PlayerView.h */,
+				CF385CDB1851E98D002BFFC9 /* PlayerView.m */,
 				A166CA04184F743600AD4307 /* SlideViewController.h */,
 				A166CA05184F743700AD4307 /* SlideViewController.m */,
 				A166CA06184F743700AD4307 /* SlideViewController.xib */,
@@ -203,6 +219,7 @@
 				8AAB601A185020860008014E /* CoverViewController.xib in Resources */,
 				8AAB600F18500B990008014E /* slide.pdf in Resources */,
 				A166C9E1184F545F00AD4307 /* Default@2x.png in Resources */,
+				CF385CDE1851ECA5002BFFC9 /* cover.mp4 in Resources */,
 				A166C9E3184F545F00AD4307 /* Default-568h@2x.png in Resources */,
 				A166CA00184F605200AD4307 /* RootViewController.xib in Resources */,
 				A166CA08184F743700AD4307 /* SlideViewController.xib in Resources */,
@@ -224,6 +241,7 @@
 				A166C9FF184F605200AD4307 /* RootViewController.m in Sources */,
 				8AAB601418500C130008014E /* PDFDocument.m in Sources */,
 				A166CA07184F743700AD4307 /* SlideViewController.m in Sources */,
+				CF385CDC1851E98D002BFFC9 /* PlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

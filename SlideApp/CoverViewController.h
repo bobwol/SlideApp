@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlayerView.h"
+
 
 @interface CoverViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet PlayerView	*playerView;
 
 @end
