@@ -26,6 +26,7 @@
 		A166CA07184F743700AD4307 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A166CA05184F743700AD4307 /* SlideViewController.m */; };
 		A166CA08184F743700AD4307 /* SlideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A166CA06184F743700AD4307 /* SlideViewController.xib */; };
 		A166CA0A184F825B00AD4307 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A166CA09184F825B00AD4307 /* MainWindow.xib */; };
+		CF04E6B61852FD7400681AC6 /* cover.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04E6B51852FD7400681AC6 /* cover.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		A166CA05184F743700AD4307 /* SlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideViewController.m; sourceTree = "<group>"; };
 		A166CA06184F743700AD4307 /* SlideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideViewController.xib; sourceTree = "<group>"; };
 		A166CA09184F825B00AD4307 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		CF04E6B51852FD7400681AC6 /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cover.png; path = Resources/cover.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		8AAB600D18500A5E0008014E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CF04E6B51852FD7400681AC6 /* cover.png */,
 				8AAB600E18500B990008014E /* slide.pdf */,
 			);
 			name = Resources;
@@ -205,6 +208,7 @@
 				A166C9E1184F545F00AD4307 /* Default@2x.png in Resources */,
 				A166C9E3184F545F00AD4307 /* Default-568h@2x.png in Resources */,
 				A166CA00184F605200AD4307 /* RootViewController.xib in Resources */,
+				CF04E6B61852FD7400681AC6 /* cover.png in Resources */,
 				A166CA08184F743700AD4307 /* SlideViewController.xib in Resources */,
 				A166CA0A184F825B00AD4307 /* MainWindow.xib in Resources */,
 			);
