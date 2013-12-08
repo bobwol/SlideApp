@@ -9,10 +9,9 @@
 #import "RootViewController.h"
 #import "CoverViewController.h"
 #import "SlideViewController.h"
+#import "SlideAppConfig.h"
 #import "PDFDocument.h"
 
-
-static const int cCountDownStart = 10;
 
 static BOOL sFirstTime = YES;
 
@@ -37,9 +36,11 @@ static BOOL sFirstTime = YES;
 
 @implementation RootViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:nibNameOrNil
+                           bundle:nibBundleOrNil];
     if (self) {
     }
 
@@ -61,8 +62,8 @@ static BOOL sFirstTime = YES;
     [super viewDidLoad];
 
     // load PDF
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"slide"
-													 ofType:@"pdf"];
+	NSString *path = [[NSBundle mainBundle] pathForResource:SLIDE_FILENAME
+													 ofType:SLIDE_FILETYPE];
 	NSURL *url = [NSURL fileURLWithPath:path];
     self.pdfDocument = [[[PDFDocument alloc] initWithUrl:url] autorelease];
 
@@ -103,7 +104,6 @@ static BOOL sFirstTime = YES;
                                        animated:NO
                                      completion:nil];
 
-    NSLog(@"schedule timer");
     self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                            target:self
                                                          selector:@selector(onCountDownTimer:)
@@ -121,14 +121,13 @@ static BOOL sFirstTime = YES;
         sFirstTime = NO;
     }
 
-    self.countDownToCover = cCountDownStart;
+    self.countDownToCover = COUNTDOWN_SECONDS;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
 
-    NSLog(@"invalidate timer");
     [self.countDownTimer invalidate];
     self.countDownTimer = nil;
 }
@@ -159,7 +158,7 @@ static BOOL sFirstTime = YES;
                                        animated:YES
                                      completion:nil];
 
-    self.countDownToCover = cCountDownStart;
+    self.countDownToCover = COUNTDOWN_SECONDS;
 }
 
 - (IBAction)onRightButton:(id)sender
@@ -172,11 +171,11 @@ static BOOL sFirstTime = YES;
 
     vcs = [NSArray arrayWithObject:[self slideViewControllerAtPage:svc.page + 1]];
     [self.pageViewController setViewControllers:vcs
-                                 direction:UIPageViewControllerNavigationDirectionForward
-                                  animated:YES
-                                completion:nil];
+                                      direction:UIPageViewControllerNavigationDirectionForward
+                                       animated:YES
+                                     completion:nil];
 
-    self.countDownToCover = cCountDownStart;
+    self.countDownToCover = COUNTDOWN_SECONDS;
 }
 
 - (IBAction)onTopButton:(id)sender
@@ -213,7 +212,7 @@ static BOOL sFirstTime = YES;
 		vc = [self slideViewControllerAtPage:page - 1];
 	}
 
-    self.countDownToCover = cCountDownStart;
+    self.countDownToCover = COUNTDOWN_SECONDS;
 
 	return vc;
 }
@@ -228,7 +227,7 @@ static BOOL sFirstTime = YES;
 		vc = [self slideViewControllerAtPage:page + 1];
 	}
 
-    self.countDownToCover = cCountDownStart;
+    self.countDownToCover = COUNTDOWN_SECONDS;
 
 	return vc;
 }

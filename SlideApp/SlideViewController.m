@@ -19,9 +19,11 @@
 
 @implementation SlideViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:nibNameOrNil
+                           bundle:nibBundleOrNil];
     if (self) {
     }
 
@@ -44,7 +46,7 @@
 
     CGRect frame = self.view.frame;
     PDFView *pdfView = [[[PDFView alloc] initWithFrame:frame
-                                          pdfDocument:self.pdfDocument
+                                           pdfDocument:self.pdfDocument
                                             pageNumber:self.page] autorelease];
     [self.view addSubview:pdfView];
 }

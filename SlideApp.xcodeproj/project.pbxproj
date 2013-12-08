@@ -59,6 +59,7 @@
 		A166CA06184F743700AD4307 /* SlideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideViewController.xib; sourceTree = "<group>"; };
 		A166CA09184F825B00AD4307 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		CF04E6B51852FD7400681AC6 /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cover.png; path = Resources/cover.png; sourceTree = "<group>"; };
+		CF2120B01854862100045CD5 /* SlideAppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideAppConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +116,7 @@
 		A166C9D2184F545F00AD4307 /* SlideApp */ = {
 			isa = PBXGroup;
 			children = (
+				CF2120B01854862100045CD5 /* SlideAppConfig.h */,
 				A166C9DB184F545F00AD4307 /* AppDelegate.h */,
 				A166C9DC184F545F00AD4307 /* AppDelegate.m */,
 				A166CA09184F825B00AD4307 /* MainWindow.xib */,
