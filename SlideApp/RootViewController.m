@@ -7,13 +7,13 @@
 //
 
 #import "RootViewController.h"
-#import "CoverViewController.h"
+//#import "CoverViewController.h"
 #import "SlideViewController.h"
 #import "SlideAppConfig.h"
 #import "PDFDocument.h"
 
 
-static BOOL sFirstTime = YES;
+//static BOOL sFirstTime = YES;
 
 
 @interface RootViewController ()
@@ -29,7 +29,8 @@ static BOOL sFirstTime = YES;
 
 - (void)onCountDownTimer:(NSTimer *)timer;
 
-- (void)presentCoverViewController:(BOOL)animated;
+//- (void)presentCoverViewController:(BOOL)animated;
+- (void)toTopPage;
 
 @end
 
@@ -115,11 +116,11 @@ static BOOL sFirstTime = YES;
 {
     [super viewDidAppear:animated];
     
-    if (sFirstTime) {
-        [self presentCoverViewController:NO];
-        
-        sFirstTime = NO;
-    }
+//    if (sFirstTime) {
+//        [self presentCoverViewController:NO];
+//        
+//        sFirstTime = NO;
+//    }
 
     self.countDownToCover = COUNTDOWN_SECONDS;
 }
@@ -180,25 +181,47 @@ static BOOL sFirstTime = YES;
 
 - (IBAction)onTopButton:(id)sender
 {
-    [self presentCoverViewController:YES];
+    [self toTopPage];
+
+    self.countDownToCover = COUNTDOWN_SECONDS;
 }
 
 
 - (void)onCountDownTimer:(NSTimer *)timer
 {
-    if (self.countDownToCover-- <= 0) {
-        [self presentCoverViewController:YES];
+    NSArray *vcs = [self.pageViewController viewControllers];
+    SlideViewController *svc = [vcs objectAtIndex:0];
+    if (svc != nil && svc.page > 1) {
+        NSLog(@"Count Down: %d", self.countDownToCover);
+        if (self.countDownToCover-- <= 0) {
+            [self toTopPage];
+
+            self.countDownToCover = COUNTDOWN_SECONDS;
+        }
     }
 }
 
 
-- (void)presentCoverViewController:(BOOL)animated
+//- (void)presentCoverViewController:(BOOL)animated
+//{
+//    UIViewController *vc = [[[CoverViewController alloc] initWithNibName:@"CoverViewController"
+//                                                                  bundle:nil] autorelease];
+//    [self presentViewController:vc
+//                       animated:animated
+//                     completion:nil];
+//}
+
+- (void)toTopPage
 {
-    UIViewController *vc = [[[CoverViewController alloc] initWithNibName:@"CoverViewController"
-                                                                  bundle:nil] autorelease];
-    [self presentViewController:vc
-                       animated:animated
-                     completion:nil];
+    NSArray *vcs = [self.pageViewController viewControllers];
+    SlideViewController *svc = [vcs objectAtIndex:0];
+    if (svc != nil && svc.page > 1) {
+        vcs = [NSArray arrayWithObject:[self slideViewControllerAtPage:1]];
+        [self.pageViewController setViewControllers:vcs
+                                          direction:UIPageViewControllerNavigationDirectionReverse
+                                           animated:YES
+                                         completion:nil];
+    }
 }
 
 

@@ -51,15 +51,6 @@
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<int key="IBUIButtonType">1</int>
-								<object class="NSColor" key="IBUINormalTitleColor" id="1033558665">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
-								</object>
-								<object class="NSColor" key="IBUIHighlightedTitleColor" id="132333327">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MQA</bytes>
-								</object>
 								<object class="NSColor" key="IBUINormalTitleShadowColor" id="965554547">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC41AA</bytes>
@@ -80,15 +71,11 @@
 								<string key="NSFrame">{{714, 10}, {300, 70}}</string>
 								<reference key="NSSuperview" ref="714330638"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<int key="IBUIButtonType">1</int>
-								<reference key="IBUINormalTitleColor" ref="1033558665"/>
-								<reference key="IBUIHighlightedTitleColor" ref="132333327"/>
 								<reference key="IBUINormalTitleShadowColor" ref="965554547"/>
 								<reference key="IBUIFontDescription" ref="792732020"/>
 								<reference key="IBUIFont" ref="97829974"/>
@@ -105,9 +92,6 @@
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<int key="IBUIButtonType">1</int>
-								<reference key="IBUINormalTitleColor" ref="1033558665"/>
-								<reference key="IBUIHighlightedTitleColor" ref="132333327"/>
 								<reference key="IBUINormalTitleShadowColor" ref="965554547"/>
 								<reference key="IBUIFontDescription" ref="792732020"/>
 								<reference key="IBUIFont" ref="97829974"/>
