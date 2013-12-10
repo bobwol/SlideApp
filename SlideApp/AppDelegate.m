@@ -33,6 +33,7 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
+    [self.coverViewController pausePlayer];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -41,6 +42,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    [self.coverViewController restartPlayer];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

@@ -14,4 +14,7 @@
 
 @property (strong, nonatomic) IBOutlet PlayerView	*playerView;
 
+- (void)pausePlayer;
+- (void)restartPlayer;
+
 @end

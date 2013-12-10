@@ -90,6 +90,18 @@
 }
 
 
+- (void)pausePlayer
+{
+    [self.player pause];
+}
+
+- (void)restartPlayer
+{
+	[self.player seekToTime:kCMTimeZero];
+	[self.player play];
+}
+
+
 - (void)setupPlayer
 {
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"cover"
@@ -97,6 +109,7 @@
 	NSURL *url = [NSURL fileURLWithPath:path];
 	self.playerItem = [[[AVPlayerItem alloc] initWithURL:url] autorelease];
 
+//    self.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(onPlayerDidPlayToEndTime:)
 												 name:AVPlayerItemDidPlayToEndTimeNotification
