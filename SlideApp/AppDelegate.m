@@ -8,10 +8,13 @@
 
 #import "AppDelegate.h"
 
+
 @implementation AppDelegate
 
 - (void)dealloc
 {
+    [_rootViewController release];
+    [_coverViewController release];
 	[_window release];
 
     [super dealloc];
@@ -21,7 +24,8 @@
 {
 	[UIApplication sharedApplication].idleTimerDisabled = YES;
 
-	self.window.rootViewController = self.rootViewController;
+//	self.window.rootViewController = self.rootViewController;
+	self.window.rootViewController = self.coverViewController;
 	[self.window makeKeyAndVisible];
 
     return YES;

@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
+#import "CoverViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
 @property (strong, nonatomic) IBOutlet RootViewController *rootViewController;
+@property (strong, nonatomic) IBOutlet CoverViewController *coverViewController;
 
 @end
