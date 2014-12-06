@@ -7,6 +7,8 @@
 //
 
 #import "CoverViewController.h"
+#import "UIImage+GIF.h"
+
 
 @interface CoverViewController ()
 
@@ -46,6 +48,9 @@
     [view addGestureRecognizer:tapGesture];
 
     [self.view addSubview:view];
+    
+    UIImage* image = [UIImage animatedGIFNamed:@"top"];
+    [self.animationView setImage:image];
 }
 
 - (void)didReceiveMemoryWarning

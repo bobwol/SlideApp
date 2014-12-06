@@ -10,5 +10,6 @@
 
 @interface CoverViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *animationView;
 
 @end

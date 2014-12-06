@@ -26,6 +26,9 @@
 		A166CA07184F743700AD4307 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A166CA05184F743700AD4307 /* SlideViewController.m */; };
 		A166CA08184F743700AD4307 /* SlideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A166CA06184F743700AD4307 /* SlideViewController.xib */; };
 		A166CA0A184F825B00AD4307 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A166CA09184F825B00AD4307 /* MainWindow.xib */; };
+		A193511A1A32E23400220E93 /* top.gif in Resources */ = {isa = PBXBuildFile; fileRef = A19351191A32E23400220E93 /* top.gif */; };
+		A193511E1A32E30C00220E93 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = A193511D1A32E30C00220E93 /* UIImage+GIF.m */; };
+		A19351201A32E4CC00220E93 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A193511F1A32E4CC00220E93 /* ImageIO.framework */; };
 		CF04E6B61852FD7400681AC6 /* cover.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04E6B51852FD7400681AC6 /* cover.png */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +61,10 @@
 		A166CA05184F743700AD4307 /* SlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideViewController.m; sourceTree = "<group>"; };
 		A166CA06184F743700AD4307 /* SlideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideViewController.xib; sourceTree = "<group>"; };
 		A166CA09184F825B00AD4307 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		A19351191A32E23400220E93 /* top.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = top.gif; path = Resources/top.gif; sourceTree = "<group>"; };
+		A193511C1A32E30C00220E93 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		A193511D1A32E30C00220E93 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
+		A193511F1A32E4CC00220E93 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		CF04E6B51852FD7400681AC6 /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cover.png; path = Resources/cover.png; sourceTree = "<group>"; };
 		CF2120B01854862100045CD5 /* SlideAppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideAppConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +77,7 @@
 				A166C9CD184F545F00AD4307 /* UIKit.framework in Frameworks */,
 				A166C9CF184F545F00AD4307 /* Foundation.framework in Frameworks */,
 				A166C9D1184F545F00AD4307 /* CoreGraphics.framework in Frameworks */,
+				A19351201A32E4CC00220E93 /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +87,7 @@
 		8AAB600D18500A5E0008014E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A19351191A32E23400220E93 /* top.gif */,
 				CF04E6B51852FD7400681AC6 /* cover.png */,
 				8AAB600E18500B990008014E /* slide.pdf */,
 			);
@@ -109,6 +118,7 @@
 				A166C9CC184F545F00AD4307 /* UIKit.framework */,
 				A166C9CE184F545F00AD4307 /* Foundation.framework */,
 				A166C9D0184F545F00AD4307 /* CoreGraphics.framework */,
+				A193511F1A32E4CC00220E93 /* ImageIO.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,6 +143,7 @@
 				8AAB601318500C130008014E /* PDFView.m */,
 				8AAB601018500C130008014E /* PDFDocument.h */,
 				8AAB601118500C130008014E /* PDFDocument.m */,
+				A193511B1A32E30C00220E93 /* LBGIFImage */,
 				A166C9D3184F545F00AD4307 /* Supporting Files */,
 			);
 			path = SlideApp;
@@ -150,6 +161,15 @@
 				A166C9E2184F545F00AD4307 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A193511B1A32E30C00220E93 /* LBGIFImage */ = {
+			isa = PBXGroup;
+			children = (
+				A193511C1A32E30C00220E93 /* UIImage+GIF.h */,
+				A193511D1A32E30C00220E93 /* UIImage+GIF.m */,
+			);
+			path = LBGIFImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A193511A1A32E23400220E93 /* top.gif in Resources */,
 				A166C9D7184F545F00AD4307 /* InfoPlist.strings in Resources */,
 				A166C9DF184F545F00AD4307 /* Default.png in Resources */,
 				8AAB601A185020860008014E /* CoverViewController.xib in Resources */,
@@ -225,6 +246,7 @@
 			files = (
 				A166C9D9184F545F00AD4307 /* main.m in Sources */,
 				8AAB6019185020860008014E /* CoverViewController.m in Sources */,
+				A193511E1A32E30C00220E93 /* UIImage+GIF.m in Sources */,
 				8AAB601518500C130008014E /* PDFView.m in Sources */,
 				A166C9DD184F545F00AD4307 /* AppDelegate.m in Sources */,
 				A166C9FF184F605200AD4307 /* RootViewController.m in Sources */,
