@@ -119,7 +119,7 @@ static BOOL sFirstTime = YES;
     [super viewDidAppear:animated];
     
     if (sFirstTime) {
-        [self presentCoverViewController:NO completion:nil];
+//        [self presentCoverViewController:NO completion:nil];
         
         sFirstTime = NO;
     }
@@ -223,15 +223,21 @@ static BOOL sFirstTime = YES;
     if (svc != nil && svc.page > 1) {
         vcs = [NSArray arrayWithObject:[self slideViewControllerAtPage:1]];
 
-        completion = ^(void) {
-            [self.pageViewController setViewControllers:vcs
-                                              direction:UIPageViewControllerNavigationDirectionReverse
-                                               animated:NO
-                                             completion:nil];
-        };
+//        completion = ^(void) {
+//            [self.pageViewController setViewControllers:vcs
+//                                              direction:UIPageViewControllerNavigationDirectionReverse
+//                                               animated:NO
+//                                             completion:nil];
+//        };
+
+        // 一枚目をアニメーション表示
+        [self.pageViewController setViewControllers:vcs
+                                          direction:UIPageViewControllerNavigationDirectionReverse
+                                           animated:YES
+                                         completion:nil];
     }
 
-    [self presentCoverViewController:YES completion:completion];
+//    [self presentCoverViewController:YES completion:completion];
 }
 
 
