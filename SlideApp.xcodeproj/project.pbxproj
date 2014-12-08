@@ -30,7 +30,9 @@
 		A193511E1A32E30C00220E93 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = A193511D1A32E30C00220E93 /* UIImage+GIF.m */; };
 		A19351201A32E4CC00220E93 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A193511F1A32E4CC00220E93 /* ImageIO.framework */; };
 		A19351231A35E04800220E93 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = A19351221A35E04800220E93 /* UIImage+animatedGIF.m */; };
-		CF04E6B61852FD7400681AC6 /* cover.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04E6B51852FD7400681AC6 /* cover.png */; };
+		A193512A1A35FE3B00220E93 /* ExternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A19351281A35FE3B00220E93 /* ExternalViewController.m */; };
+		A193512B1A35FE3B00220E93 /* ExternalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A19351291A35FE3B00220E93 /* ExternalViewController.xib */; };
+		A193512D1A36048100220E93 /* extslide.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A193512C1A36048100220E93 /* extslide.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +70,10 @@
 		A193511F1A32E4CC00220E93 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		A19351211A35E02D00220E93 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		A19351221A35E04800220E93 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
-		CF04E6B51852FD7400681AC6 /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cover.png; path = Resources/cover.png; sourceTree = "<group>"; };
+		A19351271A35FE3B00220E93 /* ExternalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalViewController.h; sourceTree = "<group>"; };
+		A19351281A35FE3B00220E93 /* ExternalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalViewController.m; sourceTree = "<group>"; };
+		A19351291A35FE3B00220E93 /* ExternalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalViewController.xib; sourceTree = "<group>"; };
+		A193512C1A36048100220E93 /* extslide.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = extslide.pdf; path = Resources/extslide.pdf; sourceTree = "<group>"; };
 		CF2120B01854862100045CD5 /* SlideAppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideAppConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,8 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				A19351191A32E23400220E93 /* top.gif */,
-				CF04E6B51852FD7400681AC6 /* cover.png */,
 				8AAB600E18500B990008014E /* slide.pdf */,
+				A193512C1A36048100220E93 /* extslide.pdf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -136,6 +141,9 @@
 				A166C9FC184F605200AD4307 /* RootViewController.h */,
 				A166C9FD184F605200AD4307 /* RootViewController.m */,
 				A166C9FE184F605200AD4307 /* RootViewController.xib */,
+				A19351271A35FE3B00220E93 /* ExternalViewController.h */,
+				A19351281A35FE3B00220E93 /* ExternalViewController.m */,
+				A19351291A35FE3B00220E93 /* ExternalViewController.xib */,
 				8AAB6016185020860008014E /* CoverViewController.h */,
 				8AAB6017185020860008014E /* CoverViewController.m */,
 				8AAB6018185020860008014E /* CoverViewController.xib */,
@@ -228,15 +236,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A193512D1A36048100220E93 /* extslide.pdf in Resources */,
 				A193511A1A32E23400220E93 /* top.gif in Resources */,
 				A166C9D7184F545F00AD4307 /* InfoPlist.strings in Resources */,
 				A166C9DF184F545F00AD4307 /* Default.png in Resources */,
 				8AAB601A185020860008014E /* CoverViewController.xib in Resources */,
 				8AAB600F18500B990008014E /* slide.pdf in Resources */,
+				A193512B1A35FE3B00220E93 /* ExternalViewController.xib in Resources */,
 				A166C9E1184F545F00AD4307 /* Default@2x.png in Resources */,
 				A166C9E3184F545F00AD4307 /* Default-568h@2x.png in Resources */,
 				A166CA00184F605200AD4307 /* RootViewController.xib in Resources */,
-				CF04E6B61852FD7400681AC6 /* cover.png in Resources */,
 				A166CA08184F743700AD4307 /* SlideViewController.xib in Resources */,
 				A166CA0A184F825B00AD4307 /* MainWindow.xib in Resources */,
 			);
@@ -255,6 +264,7 @@
 				8AAB601518500C130008014E /* PDFView.m in Sources */,
 				A19351231A35E04800220E93 /* UIImage+animatedGIF.m in Sources */,
 				A166C9DD184F545F00AD4307 /* AppDelegate.m in Sources */,
+				A193512A1A35FE3B00220E93 /* ExternalViewController.m in Sources */,
 				A166C9FF184F605200AD4307 /* RootViewController.m in Sources */,
 				8AAB601418500C130008014E /* PDFDocument.m in Sources */,
 				A166CA07184F743700AD4307 /* SlideViewController.m in Sources */,

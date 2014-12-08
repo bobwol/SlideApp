@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RootViewController.h"
+
+
+@class RootViewController;
+@class ExternalViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
 @property (strong, nonatomic) IBOutlet RootViewController *rootViewController;
+
+@property (strong, nonatomic) UIWindow			*extWindow;
+@property (strong, nonatomic) ExternalViewController *externalViewController;
 
 @end

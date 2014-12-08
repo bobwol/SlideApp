@@ -17,6 +17,8 @@
 
 #define SLIDE_FILENAME                          @"slide"
 #define SLIDE_FILETYPE                          @"pdf"
+#define EXT_SLIDE_FILENAME                      @"extslide"
+#define EXT_SLIDE_FILETYPE                      @"pdf"
 
 
 #endif
