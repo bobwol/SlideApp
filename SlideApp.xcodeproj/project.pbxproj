@@ -29,6 +29,7 @@
 		A193511A1A32E23400220E93 /* top.gif in Resources */ = {isa = PBXBuildFile; fileRef = A19351191A32E23400220E93 /* top.gif */; };
 		A193511E1A32E30C00220E93 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = A193511D1A32E30C00220E93 /* UIImage+GIF.m */; };
 		A19351201A32E4CC00220E93 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A193511F1A32E4CC00220E93 /* ImageIO.framework */; };
+		A19351231A35E04800220E93 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = A19351221A35E04800220E93 /* UIImage+animatedGIF.m */; };
 		CF04E6B61852FD7400681AC6 /* cover.png in Resources */ = {isa = PBXBuildFile; fileRef = CF04E6B51852FD7400681AC6 /* cover.png */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,8 @@
 		A193511C1A32E30C00220E93 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		A193511D1A32E30C00220E93 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
 		A193511F1A32E4CC00220E93 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		A19351211A35E02D00220E93 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		A19351221A35E04800220E93 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		CF04E6B51852FD7400681AC6 /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cover.png; path = Resources/cover.png; sourceTree = "<group>"; };
 		CF2120B01854862100045CD5 /* SlideAppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideAppConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +146,8 @@
 				8AAB601318500C130008014E /* PDFView.m */,
 				8AAB601018500C130008014E /* PDFDocument.h */,
 				8AAB601118500C130008014E /* PDFDocument.m */,
+				A19351211A35E02D00220E93 /* UIImage+animatedGIF.h */,
+				A19351221A35E04800220E93 /* UIImage+animatedGIF.m */,
 				A193511B1A32E30C00220E93 /* LBGIFImage */,
 				A166C9D3184F545F00AD4307 /* Supporting Files */,
 			);
@@ -248,6 +253,7 @@
 				8AAB6019185020860008014E /* CoverViewController.m in Sources */,
 				A193511E1A32E30C00220E93 /* UIImage+GIF.m in Sources */,
 				8AAB601518500C130008014E /* PDFView.m in Sources */,
+				A19351231A35E04800220E93 /* UIImage+animatedGIF.m in Sources */,
 				A166C9DD184F545F00AD4307 /* AppDelegate.m in Sources */,
 				A166C9FF184F605200AD4307 /* RootViewController.m in Sources */,
 				8AAB601418500C130008014E /* PDFDocument.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "SlideViewController.h"
 #import "PDFView.h"
-#import "UIImage+GIF.h"
+#import "UIImage+animatedGIF.h"
 
 
 @interface SlideViewController ()
@@ -52,9 +52,14 @@
     [self.view addSubview:pdfView];
 
     if (self.page == 1) {
-        CGRect frame = CGRectMake(256.0, 192.0, 512, 384);
+
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"top"
+                                                         ofType:@"gif"];
+        NSURL *url = [NSURL fileURLWithPath:path];
+        UIImage* image = [UIImage animatedImageWithAnimatedGIFURL:url];
+
+        CGRect frame = CGRectMake(0.0, 0.0, 1024.0, 768.0);
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
-        UIImage* image = [UIImage animatedGIFNamed:@"top"];
         [imageView setImage:image];
         [self.view addSubview:imageView];
     }

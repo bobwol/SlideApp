@@ -34,6 +34,9 @@ static BOOL sFirstTime = YES;
 - (void)toTopPage;
 - (void)toCoverPage;
 
+- (void)enableUserInteraction;
+- (void)disableUserInteraction;
+
 @end
 
 
@@ -157,11 +160,15 @@ static BOOL sFirstTime = YES;
         return;
     }
 
+    [self disableUserInteraction];
+
     vcs = [NSArray arrayWithObject:[self slideViewControllerAtPage:svc.page - 1]];
     [self.pageViewController setViewControllers:vcs
                                       direction:UIPageViewControllerNavigationDirectionReverse
                                        animated:YES
-                                     completion:nil];
+                                     completion:^(BOOL finished){
+                                         [self enableUserInteraction];
+                                     }];
 
     self.countDownToCover = COUNTDOWN_SECONDS;
 }
@@ -174,17 +181,23 @@ static BOOL sFirstTime = YES;
         return;
     }
 
+    [self disableUserInteraction];
+
     vcs = [NSArray arrayWithObject:[self slideViewControllerAtPage:svc.page + 1]];
     [self.pageViewController setViewControllers:vcs
                                       direction:UIPageViewControllerNavigationDirectionForward
                                        animated:YES
-                                     completion:nil];
+                                     completion:^(BOOL finished){
+                                         [self enableUserInteraction];
+                                     }];
 
     self.countDownToCover = COUNTDOWN_SECONDS;
 }
 
 - (IBAction)onTopButton:(id)sender
 {
+    [self disableUserInteraction];
+
     [self toTopPage];
 
     self.countDownToCover = COUNTDOWN_SECONDS;
@@ -227,6 +240,8 @@ static BOOL sFirstTime = YES;
                                            animated:YES
                                          completion:nil];
     }
+
+    [self enableUserInteraction];
 }
 
 - (void)toCoverPage
@@ -282,12 +297,32 @@ static BOOL sFirstTime = YES;
 }
 
 - (void)pageViewController:(UIPageViewController *)pageViewController
+ willTransitionToViewControllers:(NSArray *)pendingViewControllers
+{
+    NSLog(@"-----willTransitionToViewControllers");
+
+    [self disableUserInteraction];
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController
 		didFinishAnimating:(BOOL)finished
    previousViewControllers:(NSArray *)previousViewControllers
 	   transitionCompleted:(BOOL)completed
 {
-	if (completed) {
-    }
+    NSLog(@"-----didFinishAnimating: finished=%d, completed=%d", finished, completed);
+
+    [self enableUserInteraction];
+}
+
+
+- (void)enableUserInteraction
+{
+    self.view.userInteractionEnabled = YES;
+}
+
+- (void)disableUserInteraction
+{
+    self.view.userInteractionEnabled = NO;
 }
 
 @end
