@@ -32,6 +32,7 @@ static BOOL sFirstTime = YES;
 - (void)presentCoverViewController:(BOOL)animated
                         completion:(void (^)(void))completion;
 - (void)toTopPage;
+- (void)toCoverPage;
 
 @end
 
@@ -70,7 +71,7 @@ static BOOL sFirstTime = YES;
 	NSURL *url = [NSURL fileURLWithPath:path];
     self.pdfDocument = [[[PDFDocument alloc] initWithUrl:url] autorelease];
 
-	self.pageMax = self.pdfDocument.numberOfPages;
+	self.pageMax = (int)self.pdfDocument.numberOfPages;
 	self.currentPage = 1;
 
     // setup UIPageViewController
@@ -140,7 +141,8 @@ static BOOL sFirstTime = YES;
 {
 	SlideViewController *vc = [[[SlideViewController alloc] initWithNibName:@"SlideViewController"
                                                                      bundle:nil] autorelease];
-	[vc setContent:self.pdfDocument
+
+    [vc setContent:self.pdfDocument
             atPage:page];
 
 	return vc;
@@ -194,7 +196,7 @@ static BOOL sFirstTime = YES;
     NSArray *vcs = [self.pageViewController viewControllers];
     SlideViewController *svc = [vcs objectAtIndex:0];
     if (svc != nil && svc.page > 1) {
-        NSLog(@"Count Down: %d", self.countDownToCover);
+//        NSLog(@"Count Down: %d", self.countDownToCover);
         if (self.countDownToCover-- <= 0) {
             [self toTopPage];
 
@@ -216,28 +218,36 @@ static BOOL sFirstTime = YES;
 
 - (void)toTopPage
 {
+    NSArray *vcs = [self.pageViewController viewControllers];
+    SlideViewController *svc = [vcs objectAtIndex:0];
+    if (svc != nil && svc.page > 1) {
+        vcs = [NSArray arrayWithObject:[self slideViewControllerAtPage:1]];
+        [self.pageViewController setViewControllers:vcs
+                                          direction:UIPageViewControllerNavigationDirectionReverse
+                                           animated:YES
+                                         completion:nil];
+    }
+}
+
+- (void)toCoverPage
+{
     void (^completion)(void) = nil;
 
     NSArray *vcs = [self.pageViewController viewControllers];
     SlideViewController *svc = [vcs objectAtIndex:0];
     if (svc != nil && svc.page > 1) {
         vcs = [NSArray arrayWithObject:[self slideViewControllerAtPage:1]];
-
-//        completion = ^(void) {
-//            [self.pageViewController setViewControllers:vcs
-//                                              direction:UIPageViewControllerNavigationDirectionReverse
-//                                               animated:NO
-//                                             completion:nil];
-//        };
-
-        // 一枚目をアニメーション表示
-        [self.pageViewController setViewControllers:vcs
-                                          direction:UIPageViewControllerNavigationDirectionReverse
-                                           animated:YES
-                                         completion:nil];
+        
+        completion = ^(void) {
+            [self.pageViewController setViewControllers:vcs
+                                              direction:UIPageViewControllerNavigationDirectionReverse
+                                               animated:NO
+                                             completion:nil];
+        };
     }
 
-//    [self presentCoverViewController:YES completion:completion];
+    [self presentCoverViewController:YES
+                          completion:completion];
 }
 
 

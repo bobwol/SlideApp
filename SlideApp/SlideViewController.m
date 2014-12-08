@@ -8,6 +8,7 @@
 
 #import "SlideViewController.h"
 #import "PDFView.h"
+#import "UIImage+GIF.h"
 
 
 @interface SlideViewController ()
@@ -49,6 +50,14 @@
                                            pdfDocument:self.pdfDocument
                                             pageNumber:self.page] autorelease];
     [self.view addSubview:pdfView];
+
+    if (self.page == 1) {
+        CGRect frame = CGRectMake(256.0, 192.0, 512, 384);
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+        UIImage* image = [UIImage animatedGIFNamed:@"top"];
+        [imageView setImage:image];
+        [self.view addSubview:imageView];
+    }
 }
 
 - (void)didReceiveMemoryWarning
