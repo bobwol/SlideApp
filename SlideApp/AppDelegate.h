@@ -19,5 +19,8 @@
 
 @property (strong, nonatomic) UIWindow			*extWindow;
 @property (strong, nonatomic) ExternalViewController *externalViewController;
+@property (assign, nonatomic, readonly) CGRect  extFrame;
+
++ (AppDelegate *)getAppDelegate;
 
 @end

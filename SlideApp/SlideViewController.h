@@ -12,7 +12,12 @@
 
 @interface SlideViewController : UIViewController
 
+@property (assign, nonatomic, readonly) BOOL isExternal;
 @property (assign, nonatomic, readonly) int page;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+             external:(BOOL)isExternal;
 
 - (void)setContent:(PDFDocument *)content
 			atPage:(int)page;

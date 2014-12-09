@@ -33,6 +33,7 @@
 		A193512A1A35FE3B00220E93 /* ExternalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A19351281A35FE3B00220E93 /* ExternalViewController.m */; };
 		A193512B1A35FE3B00220E93 /* ExternalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A19351291A35FE3B00220E93 /* ExternalViewController.xib */; };
 		A193512D1A36048100220E93 /* extslide.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A193512C1A36048100220E93 /* extslide.pdf */; };
+		A193512F1A3692C800220E93 /* exttop.gif in Resources */ = {isa = PBXBuildFile; fileRef = A193512E1A3692C800220E93 /* exttop.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		A19351281A35FE3B00220E93 /* ExternalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalViewController.m; sourceTree = "<group>"; };
 		A19351291A35FE3B00220E93 /* ExternalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalViewController.xib; sourceTree = "<group>"; };
 		A193512C1A36048100220E93 /* extslide.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = extslide.pdf; path = Resources/extslide.pdf; sourceTree = "<group>"; };
+		A193512E1A3692C800220E93 /* exttop.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = exttop.gif; path = Resources/exttop.gif; sourceTree = "<group>"; };
 		CF2120B01854862100045CD5 /* SlideAppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideAppConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				A19351191A32E23400220E93 /* top.gif */,
+				A193512E1A3692C800220E93 /* exttop.gif */,
 				8AAB600E18500B990008014E /* slide.pdf */,
 				A193512C1A36048100220E93 /* extslide.pdf */,
 			);
@@ -248,6 +251,7 @@
 				A166CA00184F605200AD4307 /* RootViewController.xib in Resources */,
 				A166CA08184F743700AD4307 /* SlideViewController.xib in Resources */,
 				A166CA0A184F825B00AD4307 /* MainWindow.xib in Resources */,
+				A193512F1A3692C800220E93 /* exttop.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

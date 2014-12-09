@@ -143,7 +143,8 @@ static BOOL sFirstTime = YES;
 - (SlideViewController *)slideViewControllerAtPage:(int)page
 {
 	SlideViewController *vc = [[[SlideViewController alloc] initWithNibName:@"SlideViewController"
-                                                                     bundle:nil] autorelease];
+                                                                     bundle:nil
+                                                                   external:NO] autorelease];
 
     [vc setContent:self.pdfDocument
             atPage:page];

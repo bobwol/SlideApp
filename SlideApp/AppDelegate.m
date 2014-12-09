@@ -11,7 +11,12 @@
 #import "ExternalViewController.h"
 
 
+static AppDelegate *sAppDelegate;
+
+
 @interface AppDelegate ()
+
+@property (assign, nonatomic, readwrite) CGRect  extFrame;
 
 - (void)handleScreenDidConnect:(NSNotification *)aNotification;
 - (void)handleScreenDidDisconnect:(NSNotification *)aNotification;
@@ -20,6 +25,12 @@
 
 
 @implementation AppDelegate
+
+
++ (AppDelegate *)getAppDelegate
+{
+    return sAppDelegate;
+}
 
 
 - (ExternalViewController *)externalViewController;
@@ -44,7 +55,9 @@
 - (BOOL)application:(UIApplication *)application
  didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[UIApplication sharedApplication].idleTimerDisabled = YES;
+    sAppDelegate = self;
+
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
 
     [self setupNotification];
     [self setupMainWindow];
@@ -146,8 +159,8 @@
 {
     screen.currentMode = mode;
     
-    CGRect		frame = CGRectMake(0.0, 0.0, mode.size.width, mode.size.height);
-    self.extWindow = [[[UIWindow alloc] initWithFrame:frame] autorelease];
+    self.extFrame = CGRectMake(0.0, 0.0, mode.size.width, mode.size.height);
+    self.extWindow = [[[UIWindow alloc] initWithFrame:self.extFrame] autorelease];
     self.extWindow.screen = screen;
     self.extWindow.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     [self.extWindow makeKeyAndVisible];
@@ -161,6 +174,7 @@
 {
     self.extWindow.rootViewController = nil;
     self.extWindow = nil;
+    self.extFrame = CGRectMake(0.0, 0.0, 0.0, 0.0);
 }
 
 
