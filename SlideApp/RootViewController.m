@@ -7,6 +7,8 @@
 //
 
 #import "RootViewController.h"
+#import "AppDelegate.h"
+#import "ExternalViewController.h"
 #import "CoverViewController.h"
 #import "SlideViewController.h"
 #import "SlideAppConfig.h"
@@ -31,6 +33,7 @@ static BOOL sFirstTime = YES;
 
 - (void)presentCoverViewController:(BOOL)animated
                         completion:(void (^)(void))completion;
+
 - (void)toTopPage;
 - (void)toCoverPage;
 
@@ -171,6 +174,9 @@ static BOOL sFirstTime = YES;
                                          [self enableUserInteraction];
                                      }];
 
+    ExternalViewController *evc = [AppDelegate getAppDelegate].externalViewController;
+    [evc onLeftButton:self];
+
     self.countDownToCover = COUNTDOWN_SECONDS;
 }
 
@@ -192,6 +198,9 @@ static BOOL sFirstTime = YES;
                                          [self enableUserInteraction];
                                      }];
 
+    ExternalViewController *evc = [AppDelegate getAppDelegate].externalViewController;
+    [evc onRightButton:self];
+
     self.countDownToCover = COUNTDOWN_SECONDS;
 }
 
@@ -200,6 +209,9 @@ static BOOL sFirstTime = YES;
     [self disableUserInteraction];
 
     [self toTopPage];
+
+    ExternalViewController *evc = [AppDelegate getAppDelegate].externalViewController;
+    [evc onTopButton:self];
 
     self.countDownToCover = COUNTDOWN_SECONDS;
 }
@@ -311,6 +323,14 @@ static BOOL sFirstTime = YES;
 	   transitionCompleted:(BOOL)completed
 {
     NSLog(@"-----didFinishAnimating: finished=%d, completed=%d", finished, completed);
+
+    if (finished && completed) {
+        NSArray *vcs = [self.pageViewController viewControllers];
+        SlideViewController *svc = [vcs objectAtIndex:0];
+        int page = svc.page;
+        ExternalViewController *evc = [AppDelegate getAppDelegate].externalViewController;
+        [evc toPage:page];
+    }
 
     [self enableUserInteraction];
 }

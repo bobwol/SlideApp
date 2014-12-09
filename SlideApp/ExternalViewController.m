@@ -164,6 +164,30 @@
     }
 }
 
+- (void)toPage:(int)page
+{
+    NSLog(@"toPage: %d", page);
+
+    NSArray *vcs = [self.pageViewController viewControllers];
+    SlideViewController *svc = [vcs objectAtIndex:0];
+    if (svc != nil) {
+        if (page < svc.page) {
+            vcs = [NSArray arrayWithObject:[self slideViewControllerAtPage:page]];
+            [self.pageViewController setViewControllers:vcs
+                                              direction:UIPageViewControllerNavigationDirectionReverse
+                                               animated:YES
+                                             completion:nil];
+        } else if (page > svc.page) {
+            vcs = [NSArray arrayWithObject:[self slideViewControllerAtPage:page]];
+            [self.pageViewController setViewControllers:vcs
+                                              direction:UIPageViewControllerNavigationDirectionForward
+                                               animated:YES
+                                             completion:nil];
+        } else {
+        }
+    }
+}
+
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
 	  viewControllerBeforeViewController:(UIViewController *)viewController

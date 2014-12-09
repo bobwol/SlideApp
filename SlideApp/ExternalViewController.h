@@ -10,4 +10,10 @@
 
 @interface ExternalViewController : UIViewController <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
 
+- (IBAction)onLeftButton:(id)sender;
+- (IBAction)onRightButton:(id)sender;
+- (IBAction)onTopButton:(id)sender;
+
+- (void)toPage:(int)page;
+
 @end
