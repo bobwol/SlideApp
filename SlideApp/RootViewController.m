@@ -226,6 +226,9 @@ static BOOL sFirstTime = YES;
         if (self.countDownToCover-- <= 0) {
             [self toTopPage];
 
+            ExternalViewController *evc = [AppDelegate getAppDelegate].externalViewController;
+            [evc onTopButton:self];
+
             self.countDownToCover = COUNTDOWN_SECONDS;
         }
     }
