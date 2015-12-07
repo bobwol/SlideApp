@@ -63,21 +63,21 @@
     [self.view addSubview:pdfView];
 
     if (self.page == 1) {
-        NSString *path = nil;
-        if (!self.isExternal) {
-            path = [[NSBundle mainBundle] pathForResource:@"top"
-                                                   ofType:@"gif"];
-        } else {
-            path = [[NSBundle mainBundle] pathForResource:@"exttop"
-                                                   ofType:@"gif"];
-        }
-
-        NSURL *url = [NSURL fileURLWithPath:path];
-        UIImage* image = [UIImage animatedImageWithAnimatedGIFURL:url];
-
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
-        [imageView setImage:image];
-        [self.view addSubview:imageView];
+//        NSString *path = nil;
+//        if (!self.isExternal) {
+//            path = [[NSBundle mainBundle] pathForResource:@"top"
+//                                                   ofType:@"gif"];
+//        } else {
+//            path = [[NSBundle mainBundle] pathForResource:@"exttop"
+//                                                   ofType:@"gif"];
+//        }
+//
+//        NSURL *url = [NSURL fileURLWithPath:path];
+//        UIImage* image = [UIImage animatedImageWithAnimatedGIFURL:url];
+//
+//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+//        [imageView setImage:image];
+//        [self.view addSubview:imageView];
     }
 }
 
